@@ -1,0 +1,42 @@
+<!---->
+<!--Aaron Selgestad 10/10/2024-->
+<!--Campus Page-->
+<!--Brief: a campus page with information about the selected campus-->
+<!--Purpose: a page that displays the current selected campus, from here the student can select available exams by subject-->
+<!--         exams should also display the building and room number where they take place-->
+<!---->
+<!--Redirects:-->
+<!--    1. Exams: "exams.html", a page that displays information about the current selected exam, allows users to select time/dates-->
+<!--    2. Schedule New Exam: "scheduleNewExam.html", if the user goes back, it should redirect them to the schedule new exam step-->
+<!--    3. Student Home: "studentHome.html", if they cancel they should be redirected to their home page-->
+<!--    4. Login Page: "index.html", if the user logs out, redirect to the login page-->
+<!---->
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, intial-scale=1.0">
+        <title>My Boilerplate</title>
+    </head>
+    <body>
+        <h1>Campus Page</h1>
+        <hr />
+        <p>
+            <a href="../studentHome.html">Cancel</a>
+        </p>
+        <ul>
+            <li>
+                <a href="exams.html"><b>Exam A: Building and Room# </b></a>      
+            <li>
+                <a href="exams.html"><b>Exam B: Building and Room# </b></a>  
+            </li>
+            <li>
+                <a href="exams.html"><b>Exam C: Building and Room# </b></a>  
+            </li>
+        </ul>
+        <p>
+            <a href="./scheduleNewExam.html">Return</a>
+            <a href="/CITProjectWebsite/index.html">Logout</a>
+        </p>
+    </body>
+</html>
