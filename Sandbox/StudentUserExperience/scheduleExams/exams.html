@@ -1,0 +1,46 @@
+<!---->
+<!--Aaron Selgestad 10/10/2024-->
+<!--Exams Page-->
+<!--Brief: a page that displays the current selected exam-->
+<!--Purpose: the page should display information about the current selected exam, the building and room the exam takes place-->
+<!--         from here the, the student should be able select AVAILALBE dates by modal and times by radial. Do not display filled times-->
+<!--         times must go from 8am-5pm, in 1 hour intervals-->
+<!---->
+<!--Redirects:-->
+<!--    1. Confirmation: "examConfirmation.html", displays all relevant information to the scheduled exam, and allows students to confirm or cancel-->
+<!--    2. Campus: "campus.html", if the user wants to go back, redirect to the campus page-->
+<!--    3. Student Home: "studentHome.html", if they cancel they should be redirected to their home page-->
+<!--    4. Login Page: "index.html", if the user logs out, redirect to the login page-->
+<!---->
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, intial-scale=1.0">
+        <title>Exam Registration</title>
+    </head>
+    <body>
+        <h1>Exam Page</h1>
+        <hr />
+        <p>
+            <a href="../studentHome.html">Cancel</a>
+        </p>
+        <ul>
+            <li>
+                Date
+                <ul>
+                    <li>Time if Available</li>
+                    <li>Time if Available</li>
+                    <li>Time if Available</li>
+                    <li>etc...</li>
+                </ul>
+            </li>
+        </ul>
+        <p>
+            <a href="./examConfirmation.html">Confimation</a>
+        </p>
+        <p>
+            <a href="./campus.html">Return</a>
+        </p>
+    </body>
+</html>
