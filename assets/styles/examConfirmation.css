@@ -1,0 +1,196 @@
+/* Aaron Selgestad */
+/* Style Sheet for the confirmation page.html */
+/* general styling and some button animation */
+
+/* universal styling for centering text */
+* {
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* white line break in background */
+hr {
+    border: 1px solid #ffffff;
+}
+
+/* general styling to the body */
+body {
+    margin: 0;
+    padding: 0;
+    min-width: 600px;
+    background-color: #252186;
+}
+
+/*  parent container for card */
+#container {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    height: 300px;
+    margin-left: auto;
+    margin-right: auto;
+    flex-grow: 4;
+    flex-basis: auto;
+}
+
+/* flex parent for confirm button */
+#container4 {
+    display: flex;
+    flex-direction: column;
+    width: 20%;
+    /*background-color: black;*/
+    margin-left: auto;
+    margin-right: auto;
+    flex-grow: 4;
+    flex-basis: auto;
+    margin-top: 15px;
+    align-items: center;
+    height: 35px;
+}
+
+/* card for confirmation info */
+#confrimationCard{
+    background-color: #c2e4da;
+    border: 2px solid black;
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 10px 10px #190467;
+    margin-top: 5px;
+    flex-grow: 1;
+    gap: 1px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    flex: wrap; 
+}
+
+/* styling to the cancel button */
+#cancel {
+    color: #000000;
+    text-shadow: 0 0 1% black, 0 0 1% black;
+    text-decoration: none;
+}
+  
+/* small animation to the cancel button */
+#cancel:hover {
+    color: #252186;
+    position: relative;
+    top: -1px;
+}
+  
+/* styling to the yellow bar at top of page */
+.topbar {
+    margin-left: auto;
+    margin-right: auto;
+    width: 95%;
+    margin-top: 12px;
+    margin-bottom: 12px;
+    color:#252186;
+    text-shadow: 0 0 1px black, 0 0 1px black;
+    box-shadow: 5px 5px #190467;
+    border-radius: 10px;
+    padding-left: 10px;
+    background-color:#c4c406;
+    text-align: left;
+    padding-top: 1px;
+    padding-bottom: 1px;
+}
+
+/* Black styling class */
+.Black {
+    background-color: black;
+}
+
+/* header that contains the CSN logo */
+.header {
+    height: 50px;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* image of csn logo styling */
+#CSNlogo {
+    height: 50px;
+}
+
+/* card break line */
+hr.cardBreak {
+    border: 1px solid #928989;
+    width: 95%;
+    margin: 0 auto;
+}
+
+/* pushes the bottom align from button just a little bit */
+#bottomLine {
+    margin-top: 15px;;
+}
+
+/* black bar at the bottom of the page */
+/* puts the footer at the bottom of page */
+.footer {
+    height: 50px;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  bottom: 0;
+  display: flex;
+  background-color: #000000;
+  text-align: center;
+  flex-direction: column;
+  position: relative;
+  bottom: 0;
+  margin-top: 165px;
+}
+
+/* simple white box around text */
+.simplebox {
+    background-color: white;
+    margin-left: auto;
+    margin-right: auto;
+    width: 95%;
+}
+
+/* gets rid of the underline in hypertext */
+.noLine {
+    text-decoration: none;
+}
+
+/* applies a small animation on mouse over to hypertext */
+.noLine:hover {
+    position: relative;
+    top: -1px;
+}
+
+/* CONFIRM BUTTON BLOCK */
+/* styling for the confirm button */
+.confirm, .confirm:active, .confirm:visited {
+    background-color: #6edd7d;
+    border: 1px solid green;
+    box-shadow: 10px 10px #190467;
+    transition-duration: 0.1s;
+    border-radius: 10px;
+    height: 25px;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    text-decoration: none;
+    color: black;
+    margin-bottom: 7px;
+  }
+  /* behavior of confirm button on mouse over */
+  .confirm:hover {
+    color: white;
+    border: 1px solid c2e4da;
+    border: 2px solid green;
+  }
+  /* END CONFIRM BUTTON BLOCK */
+
+  .goToTheBottom {
+    display: flex;
+    align-items: flex-end;
+    flex-direction: column;
+    padding-top: 35px;
+    flex-basis: auto;
+}

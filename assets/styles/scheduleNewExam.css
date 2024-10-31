@@ -1,0 +1,471 @@
+
+/* Aaron Selgestad */
+/* style sheet to studentProfile.html  */
+/* gives general styling and animation to buttons */
+
+/* general universal styling*/
+*,
+*:after,
+*:before {
+	box-sizing: border-box;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* black style class */
+.Black {
+  background-color: black;
+}
+
+/* styling to the csn logo */
+#CSNlogo {
+  height: 50px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Dark Blue to the background of the page */
+#exambackground {
+  background-color: #252186;
+}
+
+/* general styling to the body of page */
+body {
+  margin: 0;
+  padding: 0;
+  min-width: 600px;
+}
+
+/* styling to the cancel button */
+#cancel {
+  color: #000000;
+  text-shadow: 0 0 1% black, 0 0 1% black;
+  text-decoration: none;
+}
+
+/* small animation to the cancel button */
+#cancel:hover {
+  color: #252186;
+  position: relative;
+  top: -1px;
+}
+
+/* styling to the yellow bar at top of page */
+.topbar {
+  margin-left: auto;
+  margin-right: auto;
+  width: 95%;
+  margin-top: 12px;
+  margin-bottom: 12px;
+  color:#252186;
+  text-shadow: 0 0 1px black, 0 0 1px black;
+  box-shadow: 5px 5px #190467;
+  border-radius: 10px;
+  padding-left: 10px;
+  background-color:#c4c406;
+  text-align: left;
+  padding-top: 1px;
+  padding-bottom: 1px;
+}
+
+/* FLEX CONTAINERS BLOCK FOR ALL CARDS */
+/* flex parent for both subject and exam cards*/
+#container {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  height: 320px;
+  margin-left: auto;
+  margin-right: auto;
+  flex-grow: 4;
+  flex-basis: auto;
+  gap: 10px;
+}
+
+/* flex parent container for date (calendar) card*/
+#container2 {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  height: 278px;
+  margin-left: auto;
+  margin-right: auto;
+  flex-grow: 4;
+  flex-basis: auto;
+  gap: 15px;
+  margin-top: 10px;
+}
+
+/* flex parent container for subject*/
+#container3 {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  height: 130px;
+  /*background-color: black;*/
+  margin-left: auto;
+  margin-right: auto;
+  flex-grow: 4;
+  flex-basis: auto;
+  gap: 15px;
+  margin-top: 10px;
+}
+
+/* flex parent for confirm button */
+#container4 {
+  display: flex;
+  flex-direction: column;
+  width: 20%;
+  /*background-color: black;*/
+  margin-left: auto;
+  margin-right: auto;
+  flex-grow: 4;
+  flex-basis: auto;
+  margin-top: 15px;
+  align-items: center;
+  height: 35px;
+}
+/* END FLEX CONTAINERS BLOCK FOR ALL CARDS */
+
+/* styling for the campus selection card */
+#examCampusBox {
+  background-color: #c2e4da;
+  border: 2px solid black;
+  height: 1px;
+  width: 100%;
+  border-radius: 10px;
+  box-shadow: 10px 10px #190467;
+  margin-top: 5px;
+  flex-grow: 1;
+  gap: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  flex: wrap;
+}
+
+/* styling for the subject selection card */
+#examSubjectBox{
+  background-color: #c2e4da;
+  border: 2px solid black;
+  height: 1px;
+  width: 100%;
+  border-radius: 10px;
+  box-shadow: 10px 10px #190467;
+  margin-top: 5px;
+  flex-grow: 1;
+  gap: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  flex: wrap;
+}
+
+/* styling for the date (calendar) card */
+#examCalendarBox {
+  background-color: #c2e4da;
+  border: 2px solid black;
+  width: 100%;
+  border-radius: 10px;
+  box-shadow: 10px 10px #190467;
+  margin-top: 5px;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  flex: wrap;
+}
+
+/* card break line */
+hr.cardBreak {
+  border: 1px solid #928989;
+  width: 95%;
+  margin: 0 auto;
+}
+
+/* card break line specificly for the date (calendar) card */
+#cardBreakCalendar {
+  margin-bottom: 10px;
+  border: 1px solid #928989;
+  width: 95%;
+  margin: 1 auto;
+  margin-bottom: 10px;
+}
+ 
+/* container for campus radio buttons */
+.campusContainer {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  display: flex;
+  gap: 5px;
+  align-items: center;
+  justify-content: space-around;
+}
+
+/* container for subject radio buttons */
+.subContainer {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  display: flex;
+  gap: 5px;
+  align-items: center;
+  justify-content: space-around;
+}
+
+/* RADIO BUTTON BLOCK **
+/* styling to the radio buttons for campus */
+.campusRadio {
+  color:black;
+  border: 1px solid green;
+  width: 30%;
+  height: 50px;
+  font-size: auto;
+  text-align: center;
+  border-radius: 10px;
+  background-color: #6edd7d;
+  line-height: auto;
+  box-shadow: 3px 3px #8ba39c;
+}
+
+/* styling to the radio buttons for subject */
+.subRadio {
+  color:black;
+  border: 1px solid green;
+  width: 30%;
+  height: 50px;
+  font-size: auto;
+  text-align: center;
+  border-radius: 10px;
+  background-color: #6edd7d;
+  line-height: auto;
+  box-shadow: 3px 3px #8ba39c;
+}
+
+/* styling for radio button hover */
+.campusRadio:hover, .subRadio:hover {
+  color: white;
+  border: 1px solid c2e4da;
+  border: 2px solid green;
+}
+
+/* keeps text in center of radio buttons */
+label {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* styling for the buttons when selected */
+input:checked + label {
+  background: #183d10;
+  border-radius: 10px;
+  width: 100%;
+  height: 100%;
+  color: white;
+  border: 2px solid green;
+  box-shadow: 3px 3px #8ba39c;
+  font-weight: bold;
+}
+
+/* hides the html radio button */
+input {
+  display: none;
+}
+/* RADIO BUTTON BLOCK **
+
+/* CALENDAR STYLING BLOCK */
+/*https://www.w3schools.com/cssref/pr_pos_z-index.php*/
+#calendarContainer {
+  width: 95%;
+  margin-right: auto;
+  margin-left: auto;
+  border: 1px solid green;
+}
+
+/* styling for the block that contains the month name */
+.month {
+  width: 100%;
+  background: #6edd7d;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* organizes the month name list and hids the list dot */
+.month ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* this did something before... 
+.month ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+and i dont want to delete it*/
+
+/* gives styling to the month name text */
+.month ul li {
+  color:black;
+  font-size: 20px;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+}
+
+/* styling for the left month arrow */
+.month .prev {
+  float: left;
+  padding-top: 10px;
+  list-style: none;
+}
+
+/* styling for the right month arrow */
+.month .next {
+  float: right;
+  padding-top: 10px;
+  list-style: none;
+}
+
+/* styling for the days container */
+.days {
+  padding: 0px 0;
+  background: #ffffff;
+  margin: 0;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* styling for the individual calendar dats */
+.days li {
+  list-style-type: none;
+  display: inline-block;
+  width: 13.6%;
+  text-align: center;
+  margin-bottom: 5px;
+  font-size:12px;
+  color: black;
+}
+
+/* styling for the marked calendar day */
+.days li .active {
+  padding: 5px;
+  background: #6edd7d;
+  color: black !important;
+  border-radius: 50px;
+}
+/* END CALENDAR STYLING BLOCK */
+
+/* TIME DROP DOWN BLOCK */
+/*https://www.geeksforgeeks.org/how-to-style-a-dropdown-using-css/*/
+/* styling for the time card */
+#examtimeBox {
+  background-color: #c2e4da;
+  border: 2px solid gree;
+  height: 1px;
+  width: 100%;
+  border-radius: 10px;
+  box-shadow: 10px 10px #190467;
+  margin-top: 5px;
+  flex-grow: 1;
+  gap: 2px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  flex: wrap;
+}
+
+/* behavior of the dropdown on hover */
+#time:hover {
+  color: black;
+  border: 1px solid c2e4da;
+  border: 2px solid green;
+}
+
+/* hides the cheverone and some styling for the select box */
+select {
+  appearance: none;
+  outline: 0;
+  background: green;
+  border: 1px solid black;
+  color: black;
+  border-radius: 10px;
+  width: 50%;
+  height: 100%;
+  color: black;
+  cursor: pointer;
+  background-color: #6edd7d;
+}
+
+/* provides styling for the actual drop down list */
+option { 
+  background-color: #ffffff;
+  color: black;
+}
+/* END TIME DROPDOWN BLOCK */
+
+/* CONFIRM BUTTON BLOCK */
+/* styling for the confirm button */
+.confirm, .confirm:active, .confirm:visited {
+  background-color: #6edd7d;
+  border: 1px solid green;
+  box-shadow: 10px 10px #190467;
+  transition-duration: 0.1s;
+  border-radius: 10px;
+  height: 25px;
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  text-decoration: none;
+  color: black;
+  margin-bottom: 7px;
+}
+/* behavior of confirm button on mouse over */
+.confirm:hover {
+  color: white;
+  border: 1px solid c2e4da;
+  border: 2px solid green;
+}
+/* END CONFIRM BUTTON BLOCK */
+
+/* footer styling */
+.footer {
+  height: 50px;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  bottom: 0;
+  display: flex;
+  background-color: #000000;
+  text-align: center;
+  flex-direction: column;
+  position: relative;
+  bottom: 0;
+}
+
+/* hides the underline in the hyperlink text */
+.noLine {
+  text-decoration: none;
+}
+
+/* applies a small animation on mouse over to hypertext */
+.noLine:hover {
+  position: relative;
+  top: -1px;
+}
+
+/* white line break */
+.line {
+  border: 1px solid #ffffff;
+}
+
+#confirmText {
+  position: relative;
+  top: -2px;
+}

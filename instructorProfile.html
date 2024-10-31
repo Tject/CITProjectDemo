@@ -1,0 +1,61 @@
+<!---->
+<!--Aaron Selgestad 10/10/24-->
+<!--Instructor Profile-->
+<!--Brief: instructor's information-->
+<!--Purpose:  show's instructor their name, info, and (optional) masked password-->
+<!---->
+<!--Redirects:-->
+<!--    1. viewReport: "viewReport.html", a page that is printable to show all scheduled exams-->
+<!--    2. Login Page: "index.html", if the user logs out, redirect to the login page-->
+<!---->
+<!DOCTYPE html>           
+<html lang="en" class="DarkBlue">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, intial-scale=1.0">
+        <title>Profile</title>
+        <link rel="stylesheet" href="assets/styles/instructorProfile.css" media="screen">
+    </head>
+    <body class="DarkBlue" style="body {overflow: auto;}">
+        <div class="Black" class="header">
+            <img src="assets/images/CSNlogo.webp" id="CSNlogo">
+        </div>
+        <div class="topbar">
+            <a id="logout" href="index.html">Logout</a>
+        </div>
+
+        <hr />
+        <div class="profileIMGcontainer">
+            <img class="profileIMG" id="instructorIMG" src="assets/images/instructor.PNG">
+        </div> 
+        <hr>
+    <div id="containerINTProfile">       
+        <div id="ProfileBoxINT">
+            <p class="cardTextHeader"><b>Profile</b></p>
+            <style>h3{margin-top: 10px;}</style>
+            <hr class="cardBreak"/>
+            
+            <p><b>Instructor Name</b></p>
+            <div class="simplebox">
+                <p>Dr. Karen Coombs</p>
+            </div>
+
+            <p><b>Password</b></p>
+            <div class="simplebox">
+                <p>password123</p>
+            </div>
+            
+        </div>
+        <a class="reportButton" href="viewReport.html" role="button">View Report</a>
+        <!--target="_blank" rel="noopener noreferrer"-->
+    </div>
+        <hr id="bottomLine">
+        <div class="goToTheBottom">
+            <div id="footerINT">
+                <p>
+                    <a class="noLine" href="credits.html">Credits</a>
+                </p>
+            </div>
+        </div>
+    </body>
+</html>

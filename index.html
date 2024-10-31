@@ -1,0 +1,56 @@
+<!---->
+<!--Aaron Selgestad 10/11/2024-->
+<!--Login Page-->
+<!--Brief: This page should act as the default page in the user's journey-->
+<!--Purpose: Users can login and register if new-->
+<!---->
+<!--Redirects:-->
+<!--    1. Register New Student: "registerStudent.html", this will allow new students to register an account with a valid NSHE#-->
+<!--    2. Student Home: "studentHome.html", with valid credentials a student will be able to login and be redirected to their home page-->
+<!--    3. Instructor Home: "instructorHome.html", with valid credentials am instructor will be able to login and be redirected to their homw page-->
+<!--    4. Credits: "credits.html", a 'credits page with a brief description of who did what in the project'-->
+<!---->
+<!DOCTYPE html>
+<html lang="en" class="DarkBlue">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, intial-scale=1.0">
+        <title>Exam Registration</title>
+        <link rel="stylesheet" href="assets/styles/index.css">
+    </head>
+    <body style="body {overflow: auto;}">
+        <div class="Black" class="header">
+            <img src="assets/images/CSNlogo.webp" id="CSNlogo">
+        </div>
+        <h1 class="banner">Exam Registration</h1>
+        <hr />
+        <div  id="loginBox">
+            <h4 class="instructions">
+                New Users:
+            </h4>
+            <p>
+            <a class="createButton" href="registerNewStudent.html">Create Account</a>
+            </p>
+            
+            <hr class="cardBreak"/>
+            <p>
+                <form>
+                    <label for="fullname"><b>Username</b></label><br>
+                    <input type="text" class="name" name="fullname" placeholder="John4569"><br>
+                    <label for="password"><b>NSHE#</b></label><br>
+                    <input type="password" class="password" name="password" placeholder="5001234569"><br>
+                </form>
+                <p>
+                    <a class="createButton" href="studentProfile.html">Login</a>
+                </p>
+            </p>
+        </div>
+        <hr />
+        <div id="footer">
+            <p>
+                <a class="noLine" href="credits.html">Credits</a>
+                <a class="noLine" href="instructorProfile.html">Instructor Login</a>
+            </p>
+        </div>
+    </body>
+</html>

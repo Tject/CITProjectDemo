@@ -1,0 +1,230 @@
+/* Aaron Selgestad */
+/* style sheet to studentProfile.html  */
+/* gives general styling and animation to buttons */
+
+/* universal styling for centering text */
+* {
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+}
+/* Dark Blue styling class */
+.DarkBlue {
+    background-color:#252186;
+}
+
+/* Black styling class */
+.Black {
+    background-color: black;
+}
+
+/* gives styling to the footer of page */
+.footer {
+    height: 50px;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    bottom: 0;
+    display: flex;
+    background-color: #000000;
+    text-align: center;
+    flex-direction: column;
+    position: relative;
+    bottom: 0;
+}
+
+/* white line break in background */
+hr {
+    border: 1px solid #ffffff;
+}
+
+/* general styling to the body of the page */
+body {
+    margin: 0;
+    padding: 0;
+    min-width: 600px;
+}
+
+/* line break on cards */
+hr.cardBreak {
+    border: 1px solid #928989;
+    width: 95%;
+    margin: 0 auto;
+}
+
+/* general styling to the CSN logo */
+#CSNlogo {
+    height: 50px;
+}
+
+/* general styling to student placeholder pfp img */
+.profileIMG {
+    border-radius: 50%;
+    margin-top: 28px;
+}
+
+/* styling to the frame of pfp */
+.profileIMGcontainer {
+    height:200px;
+    width:200px;
+    border-radius: 50%;
+    background-color: #000000;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: auto;
+    margin-left: auto;
+    position: relative;
+    box-shadow: 5px 5px #190467;
+}
+
+/* styling to the student profile card */
+.ProfileBox {
+    background-color: #c2e4da;
+    border: 2px solid black;
+    height: 50%;
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 10px;
+    box-shadow: 10px 10px #190467;
+    margin-bottom: 17px;
+    margin-top: 5px;
+}
+
+/* styling to the exam card */
+#studentExams {
+    background-color: #c2e4da;
+    border: 2px solid black;
+    height: 50%;
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 10px;
+    box-shadow: 10px 10px #190467;
+    margin-bottom: 20px;
+    margin-top: 5px;  
+}
+
+/* white box around text on cards */
+.simplebox {
+    background-color: white;
+    margin-left: auto;
+    margin-right: auto;
+    width: 95%;
+}
+
+/* styling to the logout button on top bar */
+#logout {
+    color: #000000;
+    text-shadow: 0 0 1% black, 0 0 1% black;
+    text-decoration: none;
+}
+
+/* small animation to the logout button */
+#logout:hover {
+    color: #252186;
+    position: relative;
+    top: -1px;
+}
+
+/* styling to the top bar of page */
+.topbar {
+    margin-left: auto;
+    margin-right: auto;
+    width: 95%;
+    margin-top: 12px;
+    margin-bottom: 12px;
+    color:#252186;
+    text-shadow: 0 0 1px black, 0 0 1px black;
+    box-shadow: 5px 5px #190467;
+    border-radius: 10px;
+    padding-left: 10px;
+    background-color:#c4c406;
+    text-align: left;
+    padding-top: 1px;
+    padding-bottom: 1px;
+}
+
+/* header to the cards */
+.cardTextHeader {
+    font-size: 125%;
+}
+
+/* BUTTONS BLOCK */
+/* gives styling to the add exam button */
+.addButton, .addButton:active, .addButton:visited {
+    background-color: #6edd7d;
+    border: 1px solid green;
+    box-shadow: 3px 3px #8ba39c;
+    transition-duration: 0.1s;
+    border-radius: 10px;
+    height: 50px;
+    width: 60%;
+    padding-left: 15px;
+    padding-right: 15px;
+    text-decoration: none;
+    color: black;
+    position: relative;
+    top: -12px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+
+}
+
+/* small animation on mouse over */
+.addButton:hover {
+    color: white;
+    border: 1px solid c2e4da;
+    border: 2px solid green;
+}
+
+/* gives styling to the exam buttons */
+.exambuttons, .exambuttons:active, .exambuttons:visited {
+    background-color: #6edd7d;
+    border: 1px solid green;
+    box-shadow: 3px 3px #8ba39c;
+    transition-duration: 0.1s;
+    border-radius: 10px;
+    height: 50px;
+    width: 50%;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    text-decoration: none;
+    color: black;
+}
+
+/* small animation on mouse over */
+.exambuttons:hover {
+    color: white;
+    border: 1px solid c2e4da;
+    border: 2px solid green;
+    background-color: #6edd7d;
+}
+
+/* changes the text and style on mouse over for edit message */
+.exambuttons:hover:before {
+    background-color: #6edd7d; 
+    color: #ffffff;
+    content: "  Edit Exam?   ";
+    padding-left: 95px;
+    padding-right: 95px;
+}
+
+/* hides the default text on the button on mouse over */
+.exambuttons:hover span{
+    display: none;
+}
+/* END BUTTON BLOCK */
+
+/* gets rid of the underline in hypertext */
+.noLine {
+    text-decoration: none;
+}
+
+/* applies a small animation on mouse over to hypertext */
+.noLine:hover {
+    position: relative;
+    top: -1px;
+}
+
