@@ -1,0 +1,178 @@
+/* Aaron Selgestad */
+/* style sheet for registerNewStudent.html */
+/* this styles the general layout, buttons, and forms */
+
+/* universal styling for centering text */
+* {
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* new student header */
+h1 {
+    color: #252186;
+    background-color: #c4c406;
+    font-weight: bold;
+    font-size: 50px;
+    font-family: "Times New Roman", serif;
+    border-radius: 10px;
+    flex:2;
+}
+
+/* line break in the background */
+hr {
+    border: 1px solid #ffffff;
+}
+
+/* Dark Blue styling class */
+.DarkBlue {
+    background-color:#252186;
+}
+/* Black styling class */
+.Black {
+    background-color: black;
+}
+
+/* background to page */
+#background {
+    color :#100AAD;
+}
+
+/* styles the general body of page */
+body {
+    margin: 0;
+    padding: 0;
+    min-width: 600px;
+}
+
+/* names and password texxt styling */
+.name {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+/* CCSN running banner */
+.banner {
+    margin-left: auto;
+    margin-right: auto;
+    width: 90%;
+    margin-top: 12px;
+    margin-bottom: 12px;
+    color:#252186;
+    text-shadow: 0 0 1px black, 0 0 1px black;
+    box-shadow: 5px 5px #190467;
+    
+}
+
+/* CSN image styling */
+#CSNlogo {
+    height: 50px;
+}
+
+/* styling for the registration card */
+#registerBox {
+    background-color: #c2e4da;
+    border: 2px solid black;
+    height: 50%;
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 10px;
+    flex:1;
+    box-shadow: 10px 10px #190467;
+    margin-bottom: 20px;
+    margin-top: 5px;
+}
+
+/* styling for the instruction text */
+.instructions {
+    margin-left: auto;
+    margin-right: auto;
+    width: 95%;
+    margin-bottom: 0px;
+}
+
+/* card break */
+hr.cardBreak {
+    border: 1px solid #928989;
+    width: 95%;
+    margin: 0 auto;
+}
+
+/* styling for the name forms */
+.name {
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
+
+/* placeholder text in form boxes */
+::placeholder {
+    color: #D3D3D3;
+    opacity: 1;
+}
+/* BUTTON BLOCK*/
+/* this block styles the design and animations */
+.registerButton, .registerButton, .registerButton:visited {
+    background-color: #6edd7d;
+    border: 1px solid green;
+    box-shadow: 3px 3px #8ba39c;
+    transition-duration: 0.1s;
+    border-radius: 10px;
+    height: 50px;
+    width: 60%;
+    padding-left: 15px;
+    padding-right: 15px;
+    text-decoration: none;
+    color: black;
+    position: relative;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    cursor:pointer;
+}
+
+/* the behavior of buttons on hover */
+.registerButton:hover {
+    color: white;
+    border: 1px solid c2e4da;
+    border: 2px solid green;
+}
+
+/* gets rid of the underline in hypertext */
+.noLine {
+    text-decoration: none;
+}
+
+/* applies a small animation on mouse over to hypertext */
+.noLine:hover {
+    position: relative;
+    top: -1px;
+}
+
+/* black bar at the bottom of the page */
+/* puts the footer at the bottom of page */
+.footer {
+    height: 50px;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    bottom: 0;
+    display: flex;
+    background-color: #000000;
+    text-align: center;
+    flex-direction: column;
+    position: relative;
+    bottom: 0;
+    margin-top: 255px;
+}
+
+/* password text styping */
+.password {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
+
+

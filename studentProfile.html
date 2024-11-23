@@ -1,0 +1,92 @@
+<!--Page Contributers: Monty McCoy and Aaron Selgestad-->
+
+<!--
+    Credit: Monty McCoy
+    Date: 10/11/2024
+    Description: This is the profile page for logged in student
+    Purpose: Students can view profile which includes NSHE# and exams
+-->
+<!---->
+<!--Aaron Selgestad 10/25/2024-->
+<!--Student Profile-->
+<!--Brief: a page that displays the student's name and NSHE#-->
+<!--Purpose: a page that displays the student's name and NSHE# and scheduled exams-->
+<!---->
+<!--Redirects:-->
+<!--    1. Schedule Exam: "scheduleExam.html", the student can begin the new exam scheduling process-->
+<!--    2. Login Page: "index.html", if the user logs out, redirect to the login page-->
+<!--    3. Edit Scheduled Exam: ".html", the user can edit a scheduled exam-->
+<!---->   
+<!DOCTYPE html>           
+<html lang="en" class="DarkBlue">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, intial-scale=1.0">
+        <title>Profile</title>
+        <link rel="stylesheet" href="assets/styles/studentProfile.css" media="screen">
+    </head>
+    <body style="body {overflow: auto}">
+        <div class="Black" class="header">
+            <img src="assets/images/CSNlogo.webp" id="CSNlogo">
+        </div>
+        <div class="topbar">
+            <!--href="index.html"-->
+            <a id="logout">Logout</a>
+        </div>
+        <hr />
+        <div class="profileIMGcontainer">
+            <img class="profileIMG" src="assets/images/avatar-icon.png">
+        </div> 
+        <hr>        
+        <div class="ProfileBox">
+            <p class="cardTextHeader"><b>Profile</b></p>
+            <style>h3{margin-top: 10px;}</style>
+            <hr class="cardBreak"/>
+            
+            <p><b>Username</b></p>
+            <div class="simplebox">
+                <p id="studentUserName">Name1234</p>
+            </div>
+
+            <p><b>NSHE#</b></p>
+            <div class="simplebox" >
+                <p id="studentNumber">5001234569</p>
+            </div>
+            
+        </div>
+        <div id="studentExams">
+                <div>
+                    <p class="cardTextHeader" id="exams"><b>Exams</b></p>
+                </div>
+                <!--
+                <a class="addButton" role="button" id="addExamButton">Add Exam</a>
+                href="scheduleNewExam.html"
+                -->
+                <hr class="cardBreak" id="examCardBreak"/>
+                <p class="examText" id="topText"><b>Exam A </b></p>
+                <div >
+                    <a class="exambuttons" id="topExam">                            Schedule Exam?                            </a>
+                </div>
+                <p class="examText" id="middleText"><b>Exam B </b></p>
+                <div >
+                    <a class="exambuttons" id="middleExam">                            Schedule Exam?                            </a>
+                </div>
+                <p class="examText" id="bottomText"><b>Exam C </b></p>
+                <div>
+                    <a class="exambuttons" id="bottomExam">                            Schedule Exam?                            </a>
+                </div>
+                <p></p>
+        </div>
+        <a id="historyButton" href="historyReport.html" role="button">View History</a>
+        <!--target="_blank" rel="noopener noreferrer"-->
+        <p></p>
+        <hr id="bottomLine">
+        <div class="footer">
+            <p>
+                <a class="noLine" href="credits.html">Credits</a>
+            </p>
+        </div>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+        <script src="javascript/studentProfile.js" charset="utf-8"></script>
+    </body>
+</html>

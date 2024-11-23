@@ -1,0 +1,60 @@
+<!---->
+<!--Aaron Selgestad 10/10/2024-->
+<!--Register New Student-->
+<!--Brief: registers a new student-->
+<!--Purpose: a student with no account should be able to register with their name and valid NSHE# as password, name 50 characters max, NSHE# 9 characters max-->
+<!--         This page should check if that user's NSHE# is already in use, they cannot make a new account unless unique NSHE#-->
+<!--         This page should create a new user in the database, (optional) confirmation toast-->
+<!---->
+<!--Redirects:-->
+<!--    1. Login Page: "index.html", the default start to the user journey and where users login-->
+<!---->
+<!DOCTYPE html>
+<html lang="en" class="DarkBlue">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, intial-scale=1.0">
+        <title>Exam Registration</title>
+        <link rel="stylesheet" href="assets/styles/registerNewStudent.css" />
+    </head>
+    <body>
+        <div class="Black" id="header">
+            <img src="assets/images/CSNlogo.webp" id="CSNlogo">
+        </div>
+        <h1 class="banner">New Student</h1>
+        <hr />
+        <div  id="registerBox">
+            <h4 class="instructions">
+                <span>Please enter your first name, last name, 
+                    and NSHE# to act as your password.</span>
+
+            </h4>
+            <p></p>
+            <hr class="cardBreak"/>
+            <p></p>
+            <form>
+                <label for="fname"><b>First Name</b></label><br>
+                <input type="text" class="name" name="fname" placeholder="John" id="firstNameField" maxlength="16"><br>
+                <!--<label for="lname"><b>Last  Name</b></label><br>
+                <input type="text" class="name" name="lname" placeholder="Doe"><br>-->
+                <label fpr="password"><b>NSHE#</b></label><br>
+                <input type="password" class="password" name="password" placeholder="5001234569" id="studentNumberField" maxlength="10"><br>
+            </form>
+            <p>
+                <a class="registerButton"  id="registerAccountButton">Register Account</a>
+                <!--href="index.html"-->
+            </p>
+            <p>
+                <a class="noLine" href="index.html">Cancel</a>
+            </p>
+        </div>
+        <hr />
+        <div  class="footer">
+            <p>
+                <a class="noLine" href="credits.html">Credits</a>
+            </p>
+        </div>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+        <script src="javascript/registerNewStudent.js" charset="utf-8"></script>
+    </body>
+</html>

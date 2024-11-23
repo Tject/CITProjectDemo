@@ -1,0 +1,138 @@
+<!---->
+<!--Aaron Selgestad 10/10/24-->
+<!--Schedule New Exam-->
+<!--Brief: the student begins scheduling a new exam-->
+<!--Purpose: the sutdent can select a campus to which they wish to take their exam-->
+<!--         campus should display their name, addres, phone, and (optional) a google link to maps/address view-->
+<!---->
+<!--Redirects:-->
+<!--    1. Campus: "campus.html", the campus selected is shown and the student can now select exam of choice-->
+<!--    2. Student Home: "studentHome.html", if they cancel they should be redirected to their home page-->
+<!--    4. Login Page: "index.html", if the user logs out, redirect to the login page-->
+<!---->
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, intial-scale=1.0">
+        <title>Exam Registration</title>
+        <link rel="stylesheet" href="assets/styles/scheduleNewExam.css"/>
+    </head>
+    <body id="exambackground" style="body {overflow: auto}">
+        <div class="Black" class="header">
+            <img src="assets/images/CSNlogo.webp" id="CSNlogo">
+        </div>
+        <div class="topbar">
+            <!--href="studentProfile.html"-->
+            <a id="cancel">Cancel</a>
+        </div>
+        <hr class="line"/>
+        <div id="container">
+            <div id="examCampusBox">
+                <h3><b>Campus</b></h3>
+                <hr class="cardBreak"/>
+                <!--Campus Radio-->
+                <form id="campusForm" class="campusContainer longhand" >
+                    <li class="campusRadio"><input id="campus1" type='radio' name="campus" value = "Charleston A#100"><label for="campus1">West Charleston</label></li>
+                    <li class="campusRadio"><input id="campus2" type="radio" name="campus" value = "Henderson B#200"><label for="campus2">Henderson</label></li>
+                    <li class="campusRadio"><input id="campus3" type="radio" name="campus" value = "N.Las Vegas C#300"><label for="campus3">North Las Vegas</label></li>
+                </form>
+            </div>
+            <div id="examSubjectBox">
+                <h3><b>Subject</b></h3>
+                <hr class="cardBreak"/>
+                <!--Subject Radio-->
+                <form class="subContainer longhand" id="subjectForm">
+                    <li class="subRadio"><input id="sub1" type="radio" name="sub" value="Calculus"><label for="sub1">Calculus</label></li>
+                    <li class="subRadio"><input id="sub2" type="radio" name="sub" value="Biology"><label for="sub2">Biology</label></li>
+                    <li class="subRadio"><input id="sub3" type="radio" name="sub" value="Programming"><label for="sub3">Programming</label></li>
+                </form>
+            </div>
+        </div>
+        <div id="container2">
+            <div id="examCalendarBox">
+                <h3><b>Date</b></h3>
+                <hr id="cardBreakCalendar"/>
+            <div id="calendarContainer">
+                <div class="month">      
+                    <ul>
+                      <li class="prev">&#10094;</li><!--source of one dot-->
+                      <li class="next">&#10095;</li><!--source of one dot-->
+                      <li>
+                        August<br>
+                        <span style="font-size:18px">2021</span>
+                      </li>
+                    </ul>
+                </div>
+                  <ul class="days">  
+                    <li>1</li>
+                    <li>2</li>
+                    <li>3</li>
+                    <li>4</li>
+                    <li>5</li>
+                    <li>6</li>
+                    <li>7</li>
+                    <li>8</li>
+                    <li>9</li>
+                    <li><span class="active">10</span></li>
+                    <li>11</li>
+                    <li>12</li>
+                    <li>13</li>
+                    <li>14</li>
+                    <li>15</li>
+                    <li>16</li>
+                    <li>17</li>
+                    <li>18</li>
+                    <li>19</li>
+                    <li>20</li>
+                    <li>21</li>
+                    <li>22</li>
+                    <li>23</li>
+                    <li>24</li>
+                    <li>25</li>
+                    <li>26</li>
+                    <li>27</li>
+                    <li>28</li>
+                    <li>29</li>
+                    <li>30</li>
+                    <li>31</li> 
+                  </ul>
+                </div>
+            </div>
+        </div>
+        <div id="container3">
+            <div id="examtimeBox">
+                <h3><b>Time</b></h3>
+                <hr class="cardBreak"/>
+                <div id="timeDropdownContainer">
+                    <label for="time"></label>
+                    <select name="time" id="time">
+                    <option value="0">Select Time</option>
+                    <option value="5">5:00 pm</option>
+                    <option value="4">4:00 pm</option>
+                    <option value="3">3:00 pm</option>
+                    <option value="2">2:00 pm</option>
+                    <option value="1">1:00 pm</option>
+                    <option value="12">12:00 pm</option>
+                    <option value="11">11:00 am</option>
+                    <option value="10">10:00 am</option>
+                    <option value="9">9:00 am</option>
+                </select>
+                </div>
+            </div>
+        </div>
+        <div id="container4">
+            <!--href="examConfirmation.html" -->
+            <a class="confirm" id="confirmButton"
+            role="button"><span id="confirmText">Confirm</span></a>
+        </div>
+        <hr class="line">
+        <div class="footer">
+            <p>
+                <a class="noLine" href="credits.html">Credits</a>
+            </p>
+        </div>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+        <script src="javascript/scheduleNewExam.js" charset="utf-8"></script>
+    </body>  
+</html>
