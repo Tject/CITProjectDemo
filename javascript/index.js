@@ -36,10 +36,10 @@ $(document).ready(function () {
             if (studentPassword === password) {
                 // this is more of a test block than actual use case
                 // will navigate to the student profile
-                sessionStorage.setItem('loggedUser', userName);      // we store the username for the current session
-                sessionStorage.setItem('loggedPassword', password);  // we store the password a.k.a. the NSHE# for the current session
-                sessionStorage.setItem('loggedRole', '0');           // this is a student which we assign as a 0 for database reasons
-                sessionStorage.setItem('loggedIn', 'true');          // we set the status of the user to loggedIn as true
+                localStorage.setItem('loggedUser', userName);      // we store the username for the current local
+                localStorage.setItem('loggedPassword', password);  // we store the password a.k.a. the NSHE# for the current local
+                localStorage.setItem('loggedRole', '0');           // this is a student which we assign as a 0 for database reasons
+                localStorage.setItem('loggedIn', 'true');          // we set the status of the user to loggedIn as true
                 $(this).attr("href", "studentProfile.html");         // this will direct them to the studentProfile.html
             } else {
                 alert("Invalid Username or Password.");
@@ -48,23 +48,23 @@ $(document).ready(function () {
         } else if (instructorUserName.toLowerCase() === userName) {
             if (instructorPassword === password) {
                 // will navigate to the instructor profile
-                sessionStorage.setItem('loggedUser', userName);     // we store the username for the current session
-                sessionStorage.setItem('loggedPassword', password); // we store the password
-                sessionStorage.setItem('loggedRole', '1');          // this is an instructor which we assign as a 1 for database reasons
-                sessionStorage.setItem('loggedIn', 'true');         // we set the status of the user to loggedIn as true
+                localStorage.setItem('loggedUser', userName);     // we store the username for the current local
+                localStorage.setItem('loggedPassword', password); // we store the password
+                localStorage.setItem('loggedRole', '1');          // this is an instructor which we assign as a 1 for database reasons
+                localStorage.setItem('loggedIn', 'true');         // we set the status of the user to loggedIn as true
                 $(this).attr("href", "instructorProfile.html");     // this will direct them to the instrucctorProfile.html
             } else {
                 alert("Invalid Username or Password.");
             }
         // this should be the main point of entry for student users
-        } else if (sessionStorage.getItem('newRegisteredUser') === userName) { 
+        } else if (localStorage.getItem('newRegisteredUser') === userName) { 
             // this block should be the mirror of real use case as it will need to query against the db
-            if (sessionStorage.getItem('newRegisteredPassword') === password) {
+            if (localStorage.getItem('newRegisteredPassword') === password) {
                 // will navigate to the student profile
-                sessionStorage.setItem('loggedUser', userName);      // we store the username for the current session
-                sessionStorage.setItem('loggedPassword', password);  // we store the password a.k.a. the NSHE# for the current session
-                sessionStorage.setItem('loggedRole', '0');           // this is a student which we assign as a 0 for database reasons
-                sessionStorage.setItem('loggedIn', 'true');          // we set the status of the user to loggedIn as true
+                localStorage.setItem('loggedUser', userName);      // we store the username for the current local
+                localStorage.setItem('loggedPassword', password);  // we store the password a.k.a. the NSHE# for the current local
+                localStorage.setItem('loggedRole', '0');           // this is a student which we assign as a 0 for database reasons
+                localStorage.setItem('loggedIn', 'true');          // we set the status of the user to loggedIn as true
                 $(this).attr("href", "studentProfile.html");         // this will direct them to the studentProfile.html
             } else {
                 alert("Invalid Username or Password.");

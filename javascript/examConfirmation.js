@@ -9,7 +9,7 @@
 // TODO... display datepicker data
 $(document).ready(function () {
     // if loggedin is anything but true, the user is not logged in and must be returned to the login screen
-    if (sessionStorage.getItem('loggedIn') != 'true') {
+    if (localStorage.getItem('loggedIn') != 'true') {
         alert("Access Denied")
         window.location.href = "index.html";  // kicks the user back to the login screen
     } else {
@@ -19,40 +19,40 @@ $(document).ready(function () {
         // this usually occurs if the user navigates here by selecting the browser back button from studentProfile.html
         // or other nefarious means...
         // TODO... we need a check for datePicker
-        if (sessionStorage.getItem('selectedSubject') === null 
-            || sessionStorage.getItem('selectedCampus') === null
-            || sessionStorage.getItem('selectedTime') === null 
-            || sessionStorage.getItem('loggedUser') === null 
-            || sessionStorage.getItem('loggedPassword') === null) {
+        if (localStorage.getItem('selectedSubject') === null 
+            || localStorage.getItem('selectedCampus') === null
+            || localStorage.getItem('selectedTime') === null 
+            || localStorage.getItem('loggedUser') === null 
+            || localStorage.getItem('loggedPassword') === null) {
             alert("Something went wrong")
             window.location.href = "studentProfile.html";  // kick them back to their profile
         } else {
-            // all data is accounted for and we must update the current session AND store the data in the database
+            // all data is accounted for and we must update the current local AND store the data in the database
 
             // seperates the name of the user from their student number
-            var firstName = sessionStorage.getItem('loggedUser'); // stored the userName 
+            var firstName = localStorage.getItem('loggedUser'); // stored the userName 
             firstName = firstName.slice(0, (firstName.length - 4)); // seperated the 4 digits of NSHE#
             firstName = firstName[0].toUpperCase() + firstName.slice(1, firstName.length); // uppercase first letter
 
             // captures the time data to be stored
-            var time = sessionStorage.getItem('selectedTime')
+            var time = localStorage.getItem('selectedTime')
 
             // WE MAY NEED TO FORMAT THE DATE FOR DISPLAY HERE
             // captures the date data to be stored
-            // TODO... actually store the data for the session
+            // TODO... actually store the data for the local
             var date = "12/12/24";
 
             // sets the text in the relevant container to the stored data
             $("#studentName").text(firstName); // displays the user's name
-            $("#studentNumber").text(sessionStorage.getItem('loggedPassword')); // displayed their NSHE#
-            $("#examType").text(sessionStorage.getItem('selectedSubject')); // displays the subject of the exam
-            $("#examCampus").text(sessionStorage.getItem('selectedCampus')); // displays the campus and bldg room#
+            $("#studentNumber").text(localStorage.getItem('loggedPassword')); // displayed their NSHE#
+            $("#examType").text(localStorage.getItem('selectedSubject')); // displays the subject of the exam
+            $("#examCampus").text(localStorage.getItem('selectedCampus')); // displays the campus and bldg room#
             // the below NEEDS the datepicker data... TODO
             $("#dateTime").text(date + " at " + time); // displays the date and time
 
             // the user has confirmed everything is correct and we must now query the database for storage
             $("#confirmButton").click(function () {
-                sessionStorage.setItem('fromConfirmBackCheck', 'false');  // the user is navigating correctly, set this to false to end the bug check case
+                localStorage.setItem('fromConfirmBackCheck', 'false');  // the user is navigating correctly, set this to false to end the bug check case
                 // storing data in the database should occur here
             });
             
@@ -61,10 +61,10 @@ $(document).ready(function () {
             // NOTE: we do NOT remove data for top, middle, or bottom... the user is still in the editing process for one of the
             // exam slots... we only need to remove the current data they have selected up to this point
             $("#return").click(function () {
-                sessionStorage.removeItem('selectedCampus');  // removes which campus they selected
-                sessionStorage.removeItem('selectedSubject'); // removes which subject they selected
+                localStorage.removeItem('selectedCampus');  // removes which campus they selected
+                localStorage.removeItem('selectedSubject'); // removes which subject they selected
                 // we need to remove data picker data here... TODO  // removed the date they selected
-                sessionStorage.removeItem('selectedTime');    // removes the time they selected
+                localStorage.removeItem('selectedTime');    // removes the time they selected
             });
         }
     }

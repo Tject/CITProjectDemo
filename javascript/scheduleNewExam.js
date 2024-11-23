@@ -5,9 +5,9 @@
 // this page should store and capture data for campus, exam type, date, and time
 
 /*********************** IMPORTANT NOTE *************************/
-// you are going to see a lot of sessionStorage data, there is quite a bit to keep track of as the user navigates
-// please be aware that top, middle, or bottom session data variables are used to permanently display selected data for the entire session
-// the selected variables are temporary session data that holds what the user is attempting to save and schedule
+// you are going to see a lot of localStorage data, there is quite a bit to keep track of as the user navigates
+// please be aware that top, middle, or bottom local data variables are used to permanently display selected data for the entire local
+// the selected variables are temporary local data that holds what the user is attempting to save and schedule
 
 // TODO... add a datePicker
 // TODO... add a check for the datePicker
@@ -15,7 +15,7 @@
 
 $(document).ready(function () {
     // the user must be logged in to continue, logged in is not true we return them to the login screen otherwise business as usual
-    if (sessionStorage.getItem('loggedIn') != 'true') {
+    if (localStorage.getItem('loggedIn') != 'true') {
         alert("Access Denied")
         window.location.href = "index.html";  // returns them to the login screen
     } else {
@@ -25,18 +25,18 @@ $(document).ready(function () {
         // null data will display, or incorrect data will be stored in the database
         // we do this by checking if the 'fromConfirmBackCheck' is true, if so we clear all data and set it to false
         // we then MUST set 'backCheck' back to true to prevent the user from causing issues by selecting back for a second time
-        if (sessionStorage.getItem('fromConfirmBackCheck') === "true"){
-            sessionStorage.removeItem('selectedCampus');
-            sessionStorage.removeItem('selectedSubject');
+        if (localStorage.getItem('fromConfirmBackCheck') === "true"){
+            localStorage.removeItem('selectedCampus');
+            localStorage.removeItem('selectedSubject');
             // we need to remove data picker data here... TODO
-            sessionStorage.removeItem('selectedTime');
-            sessionStorage.setItem('fromConfirmBackCheck', 'false');  // resets the bug case
-            sessionStorage.setItem('backCheck', 'true');              // restarts the first back case from the studentProfile screen
+            localStorage.removeItem('selectedTime');
+            localStorage.setItem('fromConfirmBackCheck', 'false');  // resets the bug case
+            localStorage.setItem('backCheck', 'true');              // restarts the first back case from the studentProfile screen
         }
         /********************* END BACK CHECK BLOCK *******************************/
 
         // click event for the confirmation button
-        // on click, the session will store all data that was selected by the user
+        // on click, the local will store all data that was selected by the user
         // it should store campus, subject with the radio buttons
         // date with a datePicker
         // and time with the drop down
@@ -50,8 +50,8 @@ $(document).ready(function () {
                         // this block of code set's the key data required to schedule the exam
                         // this is the data that was selected, it is now stored and ready to be transported to the next screen
                         // for display and then to the student profile after confirmation
-                        sessionStorage.setItem('selectedCampus', $('input[name=campus]:checked', '#campusForm').val());  // sets the campus
-                        sessionStorage.setItem('selectedSubject', $('input[name=sub]:checked', '#subjectForm').val());  // sets the subject
+                        localStorage.setItem('selectedCampus', $('input[name=campus]:checked', '#campusForm').val());  // sets the campus
+                        localStorage.setItem('selectedSubject', $('input[name=sub]:checked', '#subjectForm').val());  // sets the subject
 
                         // formats the time for display on the website
                         // we have a value for time as a single digit and must concatinate the string for user display
@@ -66,9 +66,9 @@ $(document).ready(function () {
                         // we need date picker logic here... TODO
                         // this is the data that was selected, it is now stored and ready to be transported to the next screen
                         // for display and then to the student profile after confirmation
-                        sessionStorage.setItem('selectedTime', time);  // stored the tiem the user selected
-                        sessionStorage.setItem('backCheck', 'false');  // this is the back check, the user navigated normally so set to false
-                        sessionStorage.setItem('fromConfirmBackCheck', 'true');  // this is the second back check, set to true to start the bug checking process
+                        localStorage.setItem('selectedTime', time);  // stored the tiem the user selected
+                        localStorage.setItem('backCheck', 'false');  // this is the back check, the user navigated normally so set to false
+                        localStorage.setItem('fromConfirmBackCheck', 'true');  // this is the second back check, set to true to start the bug checking process
                         $(this).attr("href", "examConfirmation.html");  // navigate to the exam confirmation page
             } else {
                 alert("Please finish completing the form.")  // the user did not select all relevant criteria and is informed
@@ -82,29 +82,29 @@ $(document).ready(function () {
         $("#cancel").click(function () {
             // the user selected cancel, we must remove the data
             if (confirm("Do you wish to cancel?")) {
-                if (sessionStorage.getItem('selectedExam') === "top") {
-                    // the user was editing the top exam slot, we must now end the top editing session
-                    sessionStorage.removeItem('topExam');  // we are no longer editing the top exam
-                    sessionStorage.removeItem('selectedExam');  // we are ending the editing session
-                } else if (sessionStorage.getItem('selectedExam') === "middle") {
-                    // the user was editing the middle exam slot, we must now end the middle editing session
-                    sessionStorage.removeItem('middleExam');    // we are no longer editing the middle exam
-                    sessionStorage.removeItem('selectedExam');  // we are ending the editing session
-                } else if (sessionStorage.getItem('selectedExam') === "bottom") {
-                    // the user was editing the bottom exam slot, we must now end the bottom editing session
-                    sessionStorage.removeItem('bottomExam');    // we are no longer editing the bottom exam
-                    sessionStorage.removeItem('selectedExam');  // we are ending the editing session
+                if (localStorage.getItem('selectedExam') === "top") {
+                    // the user was editing the top exam slot, we must now end the top editing local
+                    localStorage.removeItem('topExam');  // we are no longer editing the top exam
+                    localStorage.removeItem('selectedExam');  // we are ending the editing local
+                } else if (localStorage.getItem('selectedExam') === "middle") {
+                    // the user was editing the middle exam slot, we must now end the middle editing local
+                    localStorage.removeItem('middleExam');    // we are no longer editing the middle exam
+                    localStorage.removeItem('selectedExam');  // we are ending the editing local
+                } else if (localStorage.getItem('selectedExam') === "bottom") {
+                    // the user was editing the bottom exam slot, we must now end the bottom editing local
+                    localStorage.removeItem('bottomExam');    // we are no longer editing the bottom exam
+                    localStorage.removeItem('selectedExam');  // we are ending the editing local
                 } else {
                     alert("Hmmmmmm? How did we get here?")  // this should never occur
                 }
                 // this removes all stored selected values in the potential event that a user navigates to examConfirmation.html
                 // and then cancels back twice to scheduleNewExam.html
-                sessionStorage.removeItem('selectedCampus');
-                sessionStorage.removeItem('selectedSubject');
+                localStorage.removeItem('selectedCampus');
+                localStorage.removeItem('selectedSubject');
                 // we need to remove data picker data here... TODO
-                sessionStorage.removeItem('selectedTime');
+                localStorage.removeItem('selectedTime');
                 
-                sessionStorage.setItem('backCheck', 'false');
+                localStorage.setItem('backCheck', 'false');
                 $(this).attr("href", "studentProfile.html");
             }
         });

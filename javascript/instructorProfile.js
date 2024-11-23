@@ -9,7 +9,7 @@
 
 $(document).ready(function () {
     // the instructor must have logged in correctly else kick em back to the login page
-    if (sessionStorage.getItem('loggedIn') != 'true') {
+    if (localStorage.getItem('loggedIn') != 'true') {
         alert("Access Denied")
         window.location.href = "index.html";
     } else {
@@ -22,7 +22,7 @@ $(document).ready(function () {
                 // shows it what to switch too
                 var $this = $(this); // caching $(this)
                 $this.data("**********", $this.text());
-                $this.text(sessionStorage.getItem('loggedPassword'));
+                $this.text(localStorage.getItem('loggedPassword'));
             },
             // after the hover event ends, we must switch it back
             function() {
@@ -31,10 +31,10 @@ $(document).ready(function () {
             }
         );
 
-        // the instructor is logging out, clear ALL session data
+        // the instructor is logging out, clear ALL local data
         $("#logout").click(function() {
             if (confirm("Do you wish to logout?")) {
-                sessionStorage.clear();  // clear all session data, this effectively signs the user out
+                localStorage.clear();  // clear all local data, this effectively signs the user out
                 $(this).attr("href", "index.html");  // send back to the login screen
             } 
         });

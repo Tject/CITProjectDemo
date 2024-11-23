@@ -45,8 +45,8 @@ $(document).ready(function () {
              alert("An account with this NSHE# already exists.");
         } else {
             // everything appears to be correct and the user can proceed
-            sessionStorage.setItem('newRegisteredUser', userName);  // WE DO NOT WANT THIS AS CURRENT SESSION, THIS NEEDS TO BE DB
-            sessionStorage.setItem('newRegisteredPassword', password); // WE DO NOT WANT THIS AS CURRENT SESSION, THIS NEEDS TO BE DB
+            localStorage.setItem('newRegisteredUser', userName);  // WE DO NOT WANT THIS AS CURRENT LOCAL, THIS NEEDS TO BE DB
+            localStorage.setItem('newRegisteredPassword', password); // WE DO NOT WANT THIS AS CURRENT LOCAL, THIS NEEDS TO BE DB
             $(this).attr("href", "index.html");  // navigate them back to the login screen
         }
     });

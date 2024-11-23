@@ -9,9 +9,9 @@
 // also contains a variety of bug fixes
 
 /*********************** IMPORTANT NOTE *************************/
-// you are going to see a lot of sessionStorage data, there is quite a bit to keep track of as the user navigates
-// please be aware that top, middle, or bottom session data variables are used to permanently display selected data for the entire session
-// the selected variables are temporary session data that holds what the user is attempting to save and schedule
+// you are going to see a lot of localStorage data, there is quite a bit to keep track of as the user navigates
+// please be aware that top, middle, or bottom local data variables are used to permanently display selected data for the entire local
+// the selected variables are temporary local data that holds what the user is attempting to save and schedule
 
 
 // TODO... we need datePicker data
@@ -20,13 +20,13 @@
 
 $(document).ready(function () {
     // if the user is not logged in, redirect them to the login screen, otherwise business as usual
-    if (sessionStorage.getItem('loggedIn') != 'true') {
+    if (localStorage.getItem('loggedIn') != 'true') {
         alert("Access Denied")
         window.location.href = "index.html";
     } else {
         // store some variables to make it easier to handle
-        var userName = sessionStorage.getItem('loggedUser');
-        var password = sessionStorage.getItem('loggedPassword');
+        var userName = localStorage.getItem('loggedUser');
+        var password = localStorage.getItem('loggedPassword');
         // some default display data
         $("#studentUserName").text(userName);
         $("#studentNumber").text("**********");
@@ -36,51 +36,51 @@ $(document).ready(function () {
     // will display exam data for a previous selected exam
     // it checks to see if the backCheck was set to true, that means a user used the back button to return here
     // if this happens we set the backCheck back to false, and remove the relevant data to avoid a display error
-    if (sessionStorage.getItem('backCheck') === "true") {
-        if (sessionStorage.getItem('selectedExam') === "top") {
+    if (localStorage.getItem('backCheck') === "true") {
+        if (localStorage.getItem('selectedExam') === "top") {
             // the user navigated back after attempting to edit a top exam slot
-            sessionStorage.removeItem('topExam');
-            sessionStorage.removeItem('selectedExam');
-        } else if (sessionStorage.getItem('selectedExam') === "middle") {
+            localStorage.removeItem('topExam');
+            localStorage.removeItem('selectedExam');
+        } else if (localStorage.getItem('selectedExam') === "middle") {
             // the user navigated back after attempting to edit a middle exam slot
-            sessionStorage.removeItem('middleExam');
-            sessionStorage.removeItem('selectedExam');
-        } else if (sessionStorage.getItem('selectedExam') === "bottom") {
+            localStorage.removeItem('middleExam');
+            localStorage.removeItem('selectedExam');
+        } else if (localStorage.getItem('selectedExam') === "bottom") {
             // the user navigated back after attempting to edit a bottom exam slot
-            sessionStorage.removeItem('bottomExam');
-            sessionStorage.removeItem('selectedExam');
+            localStorage.removeItem('bottomExam');
+            localStorage.removeItem('selectedExam');
         } else {
             alert("Hmmmmmm? How did we get here?")  // this should never occur....
         }
         // this removes all other data, essentially bringing the user to a clean slate
-        sessionStorage.removeItem('selectedCampus');
-        sessionStorage.removeItem('selectedSubject');
+        localStorage.removeItem('selectedCampus');
+        localStorage.removeItem('selectedSubject');
         // we need to remove data picker data here... TODO
-        sessionStorage.removeItem('selectedTime');
-        sessionStorage.setItem('backCheck', 'false');
+        localStorage.removeItem('selectedTime');
+        localStorage.setItem('backCheck', 'false');
     }
     /***************************** END ON BACK BUTTON TEXT FIX BLOCK***************************/
         /*************************** ASSIGNMENT BLOCK ********************************************/
-        // this will assign all the data that must be displayed for the current session
+        // this will assign all the data that must be displayed for the current local
         // this will hold the subject, campus, date, and time from the schedule exam steop to be displayed
-        if (sessionStorage.getItem('selectedExam') === "top") {
+        if (localStorage.getItem('selectedExam') === "top") {
             // this will set the data for the top exam slot
-            sessionStorage.setItem('rememberTopCampus', sessionStorage.getItem('selectedCampus')) ;
-            sessionStorage.setItem('rememberTopSubject',  sessionStorage.getItem('selectedSubject'));
+            localStorage.setItem('rememberTopCampus', localStorage.getItem('selectedCampus')) ;
+            localStorage.setItem('rememberTopSubject',  localStorage.getItem('selectedSubject'));
             // TODO... we need the date data to be assigned
-            sessionStorage.setItem('rememberTopTime', sessionStorage.getItem('selectedTime'));
-        } else if (sessionStorage.getItem('selectedExam') === "middle") {
+            localStorage.setItem('rememberTopTime', localStorage.getItem('selectedTime'));
+        } else if (localStorage.getItem('selectedExam') === "middle") {
             // this will set the data for the middle exam slot
-            sessionStorage.setItem('rememberMiddleCampus', sessionStorage.getItem('selectedCampus')) ;
-            sessionStorage.setItem('rememberMiddleSubject',  sessionStorage.getItem('selectedSubject'));
+            localStorage.setItem('rememberMiddleCampus', localStorage.getItem('selectedCampus')) ;
+            localStorage.setItem('rememberMiddleSubject',  localStorage.getItem('selectedSubject'));
             // TODO... we need the date data to be assigned
-            sessionStorage.setItem('rememberMiddleTime', sessionStorage.getItem('selectedTime'));
-        } else if (sessionStorage.getItem('selectedExam') === "bottom") {
+            localStorage.setItem('rememberMiddleTime', localStorage.getItem('selectedTime'));
+        } else if (localStorage.getItem('selectedExam') === "bottom") {
             // this will set the data for the bottom exam slot
-            sessionStorage.setItem('rememberBottomCampus', sessionStorage.getItem('selectedCampus')) ;
-            sessionStorage.setItem('rememberBottomSubject',  sessionStorage.getItem('selectedSubject'));
+            localStorage.setItem('rememberBottomCampus', localStorage.getItem('selectedCampus')) ;
+            localStorage.setItem('rememberBottomSubject',  localStorage.getItem('selectedSubject'));
             // TODO... we need the date data to be assigned
-            sessionStorage.setItem('rememberBottomTime', sessionStorage.getItem('selectedTime'));
+            localStorage.setItem('rememberBottomTime', localStorage.getItem('selectedTime'));
         }
         /*************************** eND ASSIGNMENT BLOCK ********************************************/
 
@@ -107,7 +107,7 @@ $(document).ready(function () {
             // if the topExam is false, that means it is not available and must be deleted first
             // so it will display the text to 'delete exam' to inform the user
             function () {
-                if (sessionStorage.getItem('topExam') === "false") {
+                if (localStorage.getItem('topExam') === "false") {
                     $("#topExam").text("                                Delete Exam?                                ");
                 }
             },
@@ -116,13 +116,13 @@ $(document).ready(function () {
             function () {
                 // if the exam is available to be scheduled, we set the text back to it's default which is "schedule exam"
                 // otherwise the exam is scheduled and we must display the correct data to inform the user on the button
-                // we check to see if an exam is availalbe by checking if the session Data is true or null
-                if (sessionStorage.getItem('topExam') === "true"
-                    || sessionStorage.getItem('topExam') == null) {
+                // we check to see if an exam is availalbe by checking if the local Data is true or null
+                if (localStorage.getItem('topExam') === "true"
+                    || localStorage.getItem('topExam') == null) {
                     $("#topExam").text("                            Schedule Exam?                            ");
                 } else {
-                    $("#topExam").text(sessionStorage.getItem('rememberTopCampus')
-                        + " 12/12/24 at " + sessionStorage.getItem('rememberTopTime'));
+                    $("#topExam").text(localStorage.getItem('rememberTopCampus')
+                        + " 12/12/24 at " + localStorage.getItem('rememberTopTime'));
                 }
             }
             
@@ -130,35 +130,35 @@ $(document).ready(function () {
         // topExam button click event method
         $("#topExam").click(function() {
             // if the exam is not availalbe the user will have an option to delete the exam
-            // we check this by checking if the sessionData is false
-            if (sessionStorage.getItem('topExam') === "false") {
+            // we check this by checking if the localData is false
+            if (localStorage.getItem('topExam') === "false") {
                 // the user will be prompted if they wish to delete the exam
                 // if yes, it will set the exam to true making it available to be scheduled
                 if (confirm("Do you wish to delete this exam?")) {
-                    sessionStorage.setItem('topExam', "true");
+                    localStorage.setItem('topExam', "true");
                     $("#topText b").text("Exam C");  // sets the subject back to its default
                     // TODO... delete DB data on deletion of a scheduled exam (technically we just have a bool variable in the DB)
                 }
             } else {
-                // the exam was available so we will hold some session data and navigate to the schedule Exam step
-                sessionStorage.setItem('topExam', "false");  // this sets the top exam slot to become unavailable
-                sessionStorage.setItem('selectedExam', "top");  // this tells us that we CURRENTLY are editing the top slot
+                // the exam was available so we will hold some local data and navigate to the schedule Exam step
+                localStorage.setItem('topExam', "false");  // this sets the top exam slot to become unavailable
+                localStorage.setItem('selectedExam', "top");  // this tells us that we CURRENTLY are editing the top slot
                 // if the user were to immediately select the browser back button (not the cancel button),
                 // the button would display false information. We much do a check on return by selecting backCheck to false
-                sessionStorage.setItem('backCheck', 'true');       // this prevents a bug
+                localStorage.setItem('backCheck', 'true');       // this prevents a bug
                 $(this).attr("href", "scheduleNewExam.html");      // navigates to the schedule exam step
             }
         });
         // this is the on load information the button must communicate to the user
         // if the exam slot is available, then we will display the default text of "schedule exam?"
         // otherwise, the slot has already been scheduled and we must display the relevant data to the user
-        if (sessionStorage.getItem('topExam') === "true"
-            || sessionStorage.getItem('topExam') == null) {
+        if (localStorage.getItem('topExam') === "true"
+            || localStorage.getItem('topExam') == null) {
             $("#topExam").text("                            Schedule Exam?                            ");
         } else {
-            $("#topText b").text(sessionStorage.getItem('rememberTopSubject'))  // this changes the text above the button
-            $("#topExam").text(sessionStorage.getItem('rememberTopCampus')      // dispays the campus on button
-                + " 12/12/24 at " + sessionStorage.getItem('rememberTopTime'));    // displays time and date on button
+            $("#topText b").text(localStorage.getItem('rememberTopSubject'))  // this changes the text above the button
+            $("#topExam").text(localStorage.getItem('rememberTopCampus')      // dispays the campus on button
+                + " 12/12/24 at " + localStorage.getItem('rememberTopTime'));    // displays time and date on button
         }
     /************************ END TOP BUTTON BLOCK ****************************/
 
@@ -170,7 +170,7 @@ $(document).ready(function () {
             // if the middleExam is false, that means it is not available and must be deleted first
             // so it will display the text to 'delete exam' to inform the user
             function () {
-                if (sessionStorage.getItem('middleExam') === "false") {
+                if (localStorage.getItem('middleExam') === "false") {
                     $("#middleExam").text("                                Delete Exam?                                ");
                 }
             },
@@ -179,13 +179,13 @@ $(document).ready(function () {
             function () {
                 // if the exam is available to be scheduled, we set the text back to it's default which is "schedule exam"
                 // otherwise the exam is scheduled and we must display the correct data to inform the user on the button
-                // we check to see if an exam is availalbe by checking if the session Data is true or null
-                if (sessionStorage.getItem('middleExam') === "true"
-                    || sessionStorage.getItem('middleExam') == null) {
+                // we check to see if an exam is availalbe by checking if the local Data is true or null
+                if (localStorage.getItem('middleExam') === "true"
+                    || localStorage.getItem('middleExam') == null) {
                     $("#middleExam").text("                            Schedule Exam?                            ");
                 } else {
-                    $("#middleExam").text(sessionStorage.getItem('rememberMiddleCampus')
-                        + " 12/12/24 at " + sessionStorage.getItem('rememberMiddleTime'));
+                    $("#middleExam").text(localStorage.getItem('rememberMiddleCampus')
+                        + " 12/12/24 at " + localStorage.getItem('rememberMiddleTime'));
                 }
             }
             
@@ -193,35 +193,35 @@ $(document).ready(function () {
         // middleExam button click event method
         $("#middleExam").click(function() {
             // if the exam is not availalbe the user will have an option to delete the exam
-            // we check this by checking if the sessionData is false
-            if (sessionStorage.getItem('middleExam') === "false") {
+            // we check this by checking if the localData is false
+            if (localStorage.getItem('middleExam') === "false") {
                 // the user will be prompted if they wish to delete the exam
                 // if yes, it will set the exam to true making it available to be scheduled
                 if (confirm("Do you wish to delete this exam?")) {
-                    sessionStorage.setItem('middleExam', "true");
+                    localStorage.setItem('middleExam', "true");
                     $("#middleText b").text("Exam C");  // sets the subject back to its default
                     // TODO... delete DB data on deletion of a scheduled exam (technically we just have a bool variable in the DB)
                 }
             } else {
-                // the exam was available so we will hold some session data and navigate to the schedule Exam step
-                sessionStorage.setItem('middleExam', "false");  // this sets the middle exam slot to become unavailable
-                sessionStorage.setItem('selectedExam', "middle");  // this tells us that we CURRENTLY are editing the middle slot
+                // the exam was available so we will hold some local data and navigate to the schedule Exam step
+                localStorage.setItem('middleExam', "false");  // this sets the middle exam slot to become unavailable
+                localStorage.setItem('selectedExam', "middle");  // this tells us that we CURRENTLY are editing the middle slot
                 // if the user were to immediately select the browser back button (not the cancel button),
                 // the button would display false information. We much do a check on return by selecting backCheck to false
-                sessionStorage.setItem('backCheck', 'true');       // this prevents a bug
+                localStorage.setItem('backCheck', 'true');       // this prevents a bug
                 $(this).attr("href", "scheduleNewExam.html");      // navigates to the schedule exam step
             }
         });
         // this is the on load information the button must communicate to the user
         // if the exam slot is available, then we will display the default text of "schedule exam?"
         // otherwise, the slot has already been scheduled and we must display the relevant data to the user
-        if (sessionStorage.getItem('middleExam') === "true"
-            || sessionStorage.getItem('middleExam') == null) {
+        if (localStorage.getItem('middleExam') === "true"
+            || localStorage.getItem('middleExam') == null) {
             $("#middleExam").text("                            Schedule Exam?                            ");
         } else {
-            $("#middleText b").text(sessionStorage.getItem('rememberMiddleSubject'))  // this changes the text above the button
-            $("#middleExam").text(sessionStorage.getItem('rememberMiddleCampus')      // dispays the campus on button
-                + " 12/12/24 at " + sessionStorage.getItem('rememberMiddleTime'));    // displays time and date on button
+            $("#middleText b").text(localStorage.getItem('rememberMiddleSubject'))  // this changes the text above the button
+            $("#middleExam").text(localStorage.getItem('rememberMiddleCampus')      // dispays the campus on button
+                + " 12/12/24 at " + localStorage.getItem('rememberMiddleTime'));    // displays time and date on button
         }
     /************************ END MIDDLE BUTTON BLOCK ****************************/
 
@@ -233,7 +233,7 @@ $(document).ready(function () {
             // if the bottomExam is false, that means it is not available and must be deleted first
             // so it will display the text to 'delete exam' to inform the user
             function () {
-                if (sessionStorage.getItem('bottomExam') === "false") {
+                if (localStorage.getItem('bottomExam') === "false") {
                     $("#bottomExam").text("                                Delete Exam?                                ");
                 }
             },
@@ -242,13 +242,13 @@ $(document).ready(function () {
             function () {
                 // if the exam is available to be scheduled, we set the text back to it's default which is "schedule exam"
                 // otherwise the exam is scheduled and we must display the correct data to inform the user on the button
-                // we check to see if an exam is availalbe by checking if the session Data is true or null
-                if (sessionStorage.getItem('bottomExam') === "true"
-                    || sessionStorage.getItem('bottomExam') == null) {
+                // we check to see if an exam is availalbe by checking if the local Data is true or null
+                if (localStorage.getItem('bottomExam') === "true"
+                    || localStorage.getItem('bottomExam') == null) {
                     $("#bottomExam").text("                            Schedule Exam?                            ");
                 } else {
-                    $("#bottomExam").text(sessionStorage.getItem('rememberBottomCampus')
-                        + " 12/12/24 at " + sessionStorage.getItem('rememberBottomTime'));
+                    $("#bottomExam").text(localStorage.getItem('rememberBottomCampus')
+                        + " 12/12/24 at " + localStorage.getItem('rememberBottomTime'));
                 }
             }
             
@@ -256,56 +256,56 @@ $(document).ready(function () {
         // bottomExam button click event method
         $("#bottomExam").click(function() {
             // if the exam is not availalbe the user will have an option to delete the exam
-            // we check this by checking if the sessionData is false
-            if (sessionStorage.getItem('bottomExam') === "false") {
+            // we check this by checking if the localData is false
+            if (localStorage.getItem('bottomExam') === "false") {
                 // the user will be prompted if they wish to delete the exam
                 // if yes, it will set the exam to true making it available to be scheduled
                 if (confirm("Do you wish to delete this exam?")) {
-                    sessionStorage.setItem('bottomExam', "true");
+                    localStorage.setItem('bottomExam', "true");
                     $("#bottomText b").text("Exam C");  // sets the subject back to its default
                     // TODO... delete DB data on deletion of a scheduled exam (technically we just have a bool variable in the DB)
                 }
             } else {
-                // the exam was available so we will hold some session data and navigate to the schedule Exam step
-                sessionStorage.setItem('bottomExam', "false");  // this sets the bottom exam slot to become unavailable
-                sessionStorage.setItem('selectedExam', "bottom");  // this tells us that we CURRENTLY are editing the bottom slot
+                // the exam was available so we will hold some local data and navigate to the schedule Exam step
+                localStorage.setItem('bottomExam', "false");  // this sets the bottom exam slot to become unavailable
+                localStorage.setItem('selectedExam', "bottom");  // this tells us that we CURRENTLY are editing the bottom slot
                 // if the user were to immediately select the browser back button (not the cancel button),
                 // the button would display false information. We much do a check on return by selecting backCheck to false
-                sessionStorage.setItem('backCheck', 'true');       // this prevents a bug
+                localStorage.setItem('backCheck', 'true');       // this prevents a bug
                 $(this).attr("href", "scheduleNewExam.html");      // navigates to the schedule exam step
             }
         });
         // this is the on load information the button must communicate to the user
         // if the exam slot is available, then we will display the default text of "schedule exam?"
         // otherwise, the slot has already been scheduled and we must display the relevant data to the user
-        if (sessionStorage.getItem('bottomExam') === "true"
-            || sessionStorage.getItem('bottomExam') == null) {
+        if (localStorage.getItem('bottomExam') === "true"
+            || localStorage.getItem('bottomExam') == null) {
             $("#bottomExam").text("                            Schedule Exam?                            ");
         } else {
-            $("#bottomText b").text(sessionStorage.getItem('rememberBottomSubject'))  // this changes the text above the button
-            $("#bottomExam").text(sessionStorage.getItem('rememberBottomCampus')      // dispays the campus on button
-                + " 12/12/24 at " + sessionStorage.getItem('rememberBottomTime'));    // displays time and date on button
+            $("#bottomText b").text(localStorage.getItem('rememberBottomSubject'))  // this changes the text above the button
+            $("#bottomExam").text(localStorage.getItem('rememberBottomCampus')      // dispays the campus on button
+                + " 12/12/24 at " + localStorage.getItem('rememberBottomTime'));    // displays time and date on button
         }
     /************************ END BOTTOM BUTTON BLOCK ****************************/
         /************************ CLEAN UP BLOCK **********************************/
         // this block cleans up all hanging data to avoid a bug
         // in the above code, each of these should have been assigned to their proper location
         // if the user were to select another exam schedule and navigate back or refresh, the buttos will register as if
-        // that exam was scheduled with all the previous exam data. This ensures that all exam registration sessions
+        // that exam was scheduled with all the previous exam data. This ensures that all exam registration locals
         // are unique.
-        sessionStorage.removeItem('selectedCampus');    // removes sessionData for the stored campus
-        sessionStorage.removeItem('selectedSubject');   // removes sessionData for the stored subject
-        // we need to remove data picker data here... TODO  // removes sessionData for the stored date
-        sessionStorage.removeItem('selectedTime');      // removes sessionData for the stored time
-        sessionStorage.removeItem('selectedExam')       // removes sessionData for the stored subject
+        localStorage.removeItem('selectedCampus');    // removes localData for the stored campus
+        localStorage.removeItem('selectedSubject');   // removes localData for the stored subject
+        // we need to remove data picker data here... TODO  // removes localData for the stored date
+        localStorage.removeItem('selectedTime');      // removes localData for the stored time
+        localStorage.removeItem('selectedExam')       // removes localData for the stored subject
         /*************************END CLEAN UP BLOCK ******************************/
 
         // when the user logouts we will ask them if they wish to do so
         $("#logout").click(function() {
-            // if the user clicks okay to logout we will clear all sessionStorage
+            // if the user clicks okay to logout we will clear all localStorage
             // this means the user MUST login again to access anything
             if (confirm("Do you wish to logout?")) {
-                sessionStorage.clear();                 // clears all session data
+                localStorage.clear();                 // clears all local data
                 $(this).attr("href", "index.html");     // redirects to the login page
             }
         });
