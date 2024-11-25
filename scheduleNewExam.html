@@ -1,5 +1,6 @@
 <!---->
 <!--Aaron Selgestad 10/10/24-->
+<!--Monty McCoy 11/20/24-->
 <!--Schedule New Exam-->
 <!--Brief: the student begins scheduling a new exam-->
 <!--Purpose: the sutdent can select a campus to which they wish to take their exam-->
@@ -14,17 +15,17 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, intial-scale=1.0">
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
         <title>Exam Registration</title>
+        <link rel="stylesheet" href="assets/styles/calendarstyles.css"/>
         <link rel="stylesheet" href="assets/styles/scheduleNewExam.css"/>
     </head>
     <body id="exambackground" style="body {overflow: auto}">
         <div class="Black" class="header">
-            <img src="assets/images/CSNlogo.webp" id="CSNlogo">
+            <img src="" id="">
         </div>
         <div class="topbar">
-            <!--href="studentProfile.html"-->
-            <a id="cancel">Cancel</a>
+            <a id="cancel" href="studentProfile.html">Cancel</a>
         </div>
         <hr class="line"/>
         <div id="container">
@@ -38,6 +39,7 @@
                     <li class="campusRadio"><input id="campus3" type="radio" name="campus" value = "N.Las Vegas C#300"><label for="campus3">North Las Vegas</label></li>
                 </form>
             </div>
+            <br>
             <div id="examSubjectBox">
                 <h3><b>Subject</b></h3>
                 <hr class="cardBreak"/>
@@ -49,57 +51,57 @@
                 </form>
             </div>
         </div>
-        <div id="container2">
-            <div id="examCalendarBox">
-                <h3><b>Date</b></h3>
-                <hr id="cardBreakCalendar"/>
-            <div id="calendarContainer">
-                <div class="month">      
-                    <ul>
-                      <li class="prev">&#10094;</li><!--source of one dot-->
-                      <li class="next">&#10095;</li><!--source of one dot-->
-                      <li>
-                        August<br>
-                        <span style="font-size:18px">2021</span>
-                      </li>
-                    </ul>
+        <br>
+        <div class="datepicker-container"> <!--re-add hidden element to container -->
+            <h3>Date</h3>
+            <input type="text" class="date-input" placeholder="Select date" />
+            <div class="datepicker">
+            <!-- .datepicker-header -->
+            <div class="datepicker-header">               
+                <button class="prev">Prev</button>
+                <!-- .months -->
+                <div>
+                    <select class="month-input">
+                        <option>January</option>
+                        <option>February</option>
+                        <option>March</option>
+                        <option>April</option>
+                        <option>May</option>
+                        <option>June</option>
+                        <option>July</option>
+                        <option>August</option>
+                        <option>September</option>
+                        <option>October</option>
+                        <option>November</option>
+                        <option>December</option>
+                    </select>
+                    <input type="number" class="year-input" value="2024"/>
                 </div>
-                  <ul class="days">  
-                    <li>1</li>
-                    <li>2</li>
-                    <li>3</li>
-                    <li>4</li>
-                    <li>5</li>
-                    <li>6</li>
-                    <li>7</li>
-                    <li>8</li>
-                    <li>9</li>
-                    <li><span class="active">10</span></li>
-                    <li>11</li>
-                    <li>12</li>
-                    <li>13</li>
-                    <li>14</li>
-                    <li>15</li>
-                    <li>16</li>
-                    <li>17</li>
-                    <li>18</li>
-                    <li>19</li>
-                    <li>20</li>
-                    <li>21</li>
-                    <li>22</li>
-                    <li>23</li>
-                    <li>24</li>
-                    <li>25</li>
-                    <li>26</li>
-                    <li>27</li>
-                    <li>28</li>
-                    <li>29</li>
-                    <li>30</li>
-                    <li>31</li> 
-                  </ul>
+                <!-- ./months -->
+                <button class="next">Next</button>
+            </div>
+            <!-- /.datepicker-header -->
+                <!-- .days -->
+                <div class="days">
+                    <span>Sun</span>
+                    <span>Mon</span>
+                    <span>Tue</span>
+                    <span>Wed</span>
+                    <span>Thu</span>
+                    <span>Fri</span>
+                    <span>Sat</span>
                 </div>
+                <!-- .dates-->
+                <div class="dates"></div>
+                <!-- .datepicker-footer -->
+                <div class="datepicker-footer">
+                    <button class="cancel">Cancel</button>
+                    <button class="apply">Apply</button>
+                </div>
+                <!-- /.datepicker-footer -->
             </div>
         </div>
+        <br>
         <div id="container3">
             <div id="examtimeBox">
                 <h3><b>Time</b></h3>
@@ -107,23 +109,22 @@
                 <div id="timeDropdownContainer">
                     <label for="time"></label>
                     <select name="time" id="time">
-                    <option value="0">Select Time</option>
-                    <option value="5">5:00 pm</option>
-                    <option value="4">4:00 pm</option>
-                    <option value="3">3:00 pm</option>
-                    <option value="2">2:00 pm</option>
-                    <option value="1">1:00 pm</option>
-                    <option value="12">12:00 pm</option>
-                    <option value="11">11:00 am</option>
-                    <option value="10">10:00 am</option>
-                    <option value="9">9:00 am</option>
+                    <option value="17">5:00pm</option>
+                    <option value="16">4:00pm</option>
+                    <option value="15">3:00pm</option>
+                    <option value="14">2:00pm</option>
+                    <option value="13">1:00pm</option>
+                    <option value="12">12:00am</option>
+                    <option value="11">11:00am</option>
+                    <option value="10">10:00am</option>
+                    <option value="9">9:00am</option>
                 </select>
                 </div>
             </div>
         </div>
         <div id="container4">
-            <!--href="examConfirmation.html" -->
-            <a class="confirm" id="confirmButton"
+            <a class="confirm" 
+            href="examConfirmation.html" 
             role="button"><span id="confirmText">Confirm</span></a>
         </div>
         <hr class="line">
@@ -134,5 +135,7 @@
         </div>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
         <script src="javascript/scheduleNewExam.js" charset="utf-8"></script>
+        <script src="javascript/calendar.js"></script>
+
     </body>  
 </html>
