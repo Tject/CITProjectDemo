@@ -1,0 +1,143 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap");
+/* Monty McCoy*/
+/* Style sheet for sheculeNewExam*/
+
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    color: #333;
+}
+
+body{
+    background:white;
+    padding: 50px;
+    display: flex;
+    justify-content: center;
+}
+
+.date-input {
+    padding: 10px;
+    font-size: 1rem;
+    border-radius: 5px;
+    border:1px solid #000000;
+}
+
+/* datepicker styles */
+
+.datepicker-container {
+    position: relative;
+}
+
+.datepicker {
+    position: absolute;
+    top: 100%;
+    z-index: 100;
+    margin-top: 2px;
+    background: #fff;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.datepicker button{
+    cursor: pointer;
+    border: none;
+    border-radius: 3px;
+    background: transparent;
+    font-style: 1px;
+    font-weight: 500;
+    text-transform: uppercase;
+    transition: 0.3s;
+}
+
+.days, .dates {
+    display: grid;
+    grid-template-columns: repeat(7, 32px); 
+    gap: 10px;
+    margin-block: 10px;
+}
+
+.days span { 
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: uppercase;
+    text-align: center;
+
+}
+
+.dates button {
+    color: #361C51;
+    aspect-ratio: 1;
+}
+
+.dates button:hover {
+    background: #F9F1E2;
+}
+
+.dates button.today {
+    background: #004890;
+    color: #F9F1E2;
+}
+
+.dates button.selected {
+    background: #FFD200;
+    color:#fff;
+}
+
+/* datepicker header */
+.datepicker-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #000;
+}
+
+.datepicker-header select, .datepicker input {
+    font-style: 14px;
+    border: 1px solid #000;
+}
+
+.datepicker-header input {
+    max-width: 64px;
+}
+
+.datepicker-header button {
+    color:#361C51;
+}
+
+.datepicker-header button:hover {
+    color: #004890;
+}
+
+/* datepicker footer*/
+.datepicker-footer {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    padding-top: 10px;
+    border-top: 1px  #fff;
+}
+
+.datepicker-footer button {
+    color:#F9F1E2;
+    padding: 3px 10px;
+}
+
+.datepicker-footer button.apply {
+    background-color: #004890;
+    color: #fff;
+}
+
+.datepicker-footer select, .datepicker input {
+    font-style: 14px;
+    border: 1px solid #000;
+}
+
+.datepicker-footer {
+    max-width: 64px;
+}
+
+
